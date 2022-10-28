@@ -74,32 +74,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Redefinir senha</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 360px; padding: 20px; }
-    </style>
-</head>
+        <title><?php echo NOMESISTEMA; ?></title>
+        <!-- Link do Bootstrap -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/login.css">
+    </head>
+    <!-- Link do JQuery e seus plugins -->
+    <script type="text/javascript" src="bootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <body>
-    <div class="wrapper">
-        <h2>Redefinir senha</h2>
-        <p>Por favor, preencha este formulário para redefinir sua senha.</p>
+<div id="site">
+
+<figure>
+    <img src="images/logo.png" alt="Logo Markt Club">
+</figure>
+ 
+       
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"> 
-            <div class="form-group">
+        <legend>Redefinir senha</legend>
+        <p>Por favor, preencha este formulário para redefinir sua senha.</p>
+        <div style="margin-bottom: 25px" class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <label>Nova senha</label>
                 <input type="password" name="new_password" class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $new_password; ?>">
                 <span class="invalid-feedback"><?php echo $new_password_err; ?></span>
             </div>
-            <div class="form-group">
+            <div style="margin-bottom: 25px" class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <label>Confirme a senha</label>
                 <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
             </div>
-            <div class="form-group">
+            <div style="margin-bottom: 10px" class="input-group">
+          
                 <input type="submit" class="btn btn-primary" value="Redefinir">
-                <a class="btn btn-link ml-2" href="index.php?welcome">Cancelar</a>
+                <a class="btn btn-danger ml-2" href="index.php?welcome">Cancelar</a>
             </div>
         </form>
     </div>    
